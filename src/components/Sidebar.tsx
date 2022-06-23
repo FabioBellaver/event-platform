@@ -1,5 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import { Lesson } from "./Lesson";
+import { Loading } from "./Loading";
 
 const GET_LESSONS_QUERY = gql`
   query {
@@ -26,7 +27,13 @@ interface GetLessonsQueryProps {
 export function Sidebar() {
   const { data } = useQuery<GetLessonsQueryProps>(GET_LESSONS_QUERY);
 
-  console.log(data);
+  if (!data) {
+    return (
+      <div className="flex items-center justify-center w-[348px]">
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     <aside className="w-[348px] bg-gray-700 p-6 border-l border-gray-600">
