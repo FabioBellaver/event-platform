@@ -4,6 +4,7 @@ import { Footer } from "../components/Footer";
 import { Logo } from "../components/Logo";
 import { useCreateSubscriberMutation } from "../graphql/generated";
 import imgUrl from '../../src/assets/code-mockup.png'
+// test
 
 export function Subscribe() {
   const navigate = useNavigate();
